@@ -1,0 +1,67 @@
+* {
+  font-family: Futura;
+  margin: 0;
+}
+
+.header {
+  height: 60px;
+  /* padding: 15px; */
+}
+
+.container {
+  margin-top: 15px;
+}
+
+.nav {
+  width: 90%;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+  /* margin-left: 20px; */
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.nav-link {
+  text-align: center;
+  color: white;
+  margin: 18px;
+  position: relative;
+}
+
+.logo {
+  color: white;
+  margin: 8px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon {
+  margin: 12px;
+}
+
+.badge-div {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.item-count {
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: red;
+  min-width: 25px;
+  min-height: 25px;
+  position: absolute;
+  right: -15px;
+  bottom: 15px;
+}
+
+.hero-image {
+  width: 100%;
+  margin-top: 0;
+}
