@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Nav() {
+function Nav(props) {
   return (
     <ul>
       <Link to="/">
@@ -20,7 +20,7 @@ function Nav() {
       <li className="nav-link icon">
         <div className="badge-div">
           <FontAwesomeIcon icon={faShoppingCart} size="2x" />
-          <span className="item-count">2</span>
+          <span className="item-count">{props.cart.length}</span>
         </div>
       </li>
     </ul>

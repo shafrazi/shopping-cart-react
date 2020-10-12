@@ -9,7 +9,8 @@
 }
 
 .container {
-  margin-top: 15px;
+  width: 90%;
+  margin: 15px auto;
 }
 
 .nav {
@@ -52,6 +53,7 @@ a {
 
 .item-count {
   box-sizing: border-box;
+  padding: 2px;
   border-radius: 50%;
   background-color: red;
   min-width: 25px;
@@ -64,4 +66,22 @@ a {
 .hero-image {
   width: 100%;
   margin-top: 0;
+}
+
+.item-container {
+  /* width: 99%; */
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+}
+
+.card {
+  text-align: center;
+  justify-items: center;
+  min-height: 400px;
 }
