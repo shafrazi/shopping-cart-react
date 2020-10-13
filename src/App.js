@@ -13,21 +13,19 @@ class App extends React.Component {
       items: items,
       cart: [],
       cartTotal: 0,
-      itemCount: 1,
     };
   }
 
-  addToCart = (item) => {
+  addToCart = (item, itemCount) => {
     this.setState((prevState) => {
       const itemObject = {
         product: item,
-        itemCount: prevState.itemCount,
+        itemCount: itemCount,
       };
       prevState.cart.push(itemObject);
       return {
         cart: prevState.cart,
         cartTotal: prevState.cartTotal + item.price * itemObject.itemCount,
-        itemCount: 1,
       };
     });
   };
@@ -39,7 +37,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.cart);
     return (
       <BrowserRouter>
         <AppBar position="sticky" className="header">
