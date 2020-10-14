@@ -85,3 +85,16 @@ a {
   justify-items: center;
   min-height: 400px;
 }
+
+.item-count-container {
+  display: grid;
+  width: 40%;
+  margin: 10px auto;
+  grid-template-columns: 0.2fr 1fr 0.2fr;
+}
+
+.input-count {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}

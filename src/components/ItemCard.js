@@ -1,5 +1,8 @@
 import React from "react";
 import { Button } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 
 class ItemCard extends React.Component {
   constructor(props) {
@@ -16,10 +19,30 @@ class ItemCard extends React.Component {
   };
 
   handleClick = () => {
-    this.props.addToCart(this.props.item, this.state.itemCount);
-    this.setState({
-      itemCount: 1,
+    if (this.state.itemCount >= 1) {
+      this.props.addToCart(this.props.item, this.state.itemCount);
+      this.setState({
+        itemCount: 1,
+      });
+    }
+  };
+
+  increaseCount = () => {
+    this.setState((prevState) => {
+      return {
+        itemCount: parseInt(prevState.itemCount) + 1,
+      };
     });
+  };
+
+  decreaseCount = () => {
+    if (this.state.itemCount > 1) {
+      this.setState((prevState) => {
+        return {
+          itemCount: parseInt(prevState.itemCount) - 1,
+        };
+      });
+    }
   };
 
   render() {
@@ -32,12 +55,28 @@ class ItemCard extends React.Component {
         />
         <p>{this.props.item.name}</p>
         <p>$ {this.props.item.price}</p>
-        <input
-          type="text"
-          name="itemCount"
-          onChange={this.handleChange}
-          value={this.state.itemCount}
-        />
+
+        <div className="item-count-container">
+          <IconButton onClick={this.increaseCount} size="small" color="primary">
+            <ArrowUpwardIcon fontSize="inherit" />
+          </IconButton>
+          <input
+            type="text"
+            className="input-count"
+            name="itemCount"
+            onChange={this.handleChange}
+            value={this.state.itemCount}
+          />
+
+          <IconButton
+            onClick={this.decreaseCount}
+            size="small"
+            color="secondary"
+          >
+            <ArrowDownwardIcon fontSize="inherit" />
+          </IconButton>
+        </div>
+
         <Button variant="contained" color="primary" onClick={this.handleClick}>
           Add to cart
         </Button>

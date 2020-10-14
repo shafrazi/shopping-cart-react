@@ -20,7 +20,9 @@ function Nav(props) {
       <li className="nav-link icon">
         <div className="badge-div">
           <FontAwesomeIcon icon={faShoppingCart} size="2x" />
-          <span className="item-count">{props.cart.length}</span>
+          {props.cart.length > 0 ? (
+            <span className="item-count">{props.cart.length}</span>
+          ) : null}
         </div>
       </li>
     </ul>
