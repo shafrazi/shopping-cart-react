@@ -2,6 +2,7 @@ import React from "react";
 import Shop from "./components/Shop";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
+import Cart from "./components/Cart";
 import items from "./Item";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { AppBar } from "@material-ui/core";
@@ -34,7 +35,11 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <AppBar position="sticky" className="header">
-          <Nav className="nav" cart={this.state.cart} />
+          <Nav
+            className="nav"
+            cart={this.state.cart}
+            viewCart={this.viewCart}
+          />
         </AppBar>
         <Switch>
           <Route
@@ -53,6 +58,19 @@ class App extends React.Component {
             }}
           />
           <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/cart"
+            component={(props) => {
+              return (
+                <Cart
+                  {...props}
+                  cart={this.state.cart}
+                  total={this.state.cartTotal}
+                />
+              );
+            }}
+          />
         </Switch>
       </BrowserRouter>
     );
